@@ -28,7 +28,9 @@ SECRET_KEY = 'django-insecure-%l$2(v0$m7rnmi(-ae4pdf)k-@u%qx@j9xhv!&pz-r5n$0b53g
 DEBUG = os.environ.get('PRODUCTION_ENVIRONMENT', '').lower() != 'true'
 
 ALLOWED_HOSTS = [
-    'django-app-senai-jcmonsilv.onrender.com'
+    os.environ.get('DOMAIN_ADDRESS', '').lower(),
+    'localhost',
+    '127.0.0.1'
 ]
 
 
@@ -41,6 +43,7 @@ INSTALLED_APPS = [
     'django.contrib.sessions',
     'django.contrib.messages',
     'django.contrib.staticfiles',
+    'alunos',
 ]
 
 MIDDLEWARE = [
