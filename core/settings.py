@@ -12,6 +12,7 @@ https://docs.djangoproject.com/en/5.0/ref/settings/
 
 from pathlib import Path
 import dj_database_url
+import os
 
 # Build paths inside the project like this: BASE_DIR / 'subdir'.
 BASE_DIR = Path(__file__).resolve().parent.parent
@@ -24,7 +25,7 @@ BASE_DIR = Path(__file__).resolve().parent.parent
 SECRET_KEY = 'django-insecure-%l$2(v0$m7rnmi(-ae4pdf)k-@u%qx@j9xhv!&pz-r5n$0b53g'
 
 # SECURITY WARNING: don't run with debug turned on in production!
-DEBUG = True
+DEBUG = os.environ.get('PRODUCTION_ENVIRONMENT', '').lower() != 'true'
 
 ALLOWED_HOSTS = [
     'django-app-senai-jcmonsilv.onrender.com'
